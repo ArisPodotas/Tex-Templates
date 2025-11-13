@@ -1,0 +1,85 @@
+
+% right area of the page text aligned to the right of the box
+\newcommand{\rightpagerightalignment}[2]{%
+    \normalmarginpar{
+        \marginpar{%
+            \begin{minipage}{3cm}%
+                \raggedleft%
+                \textcolor{#1}{#2}%
+            \end{minipage}%
+        }%
+    }
+}
+
+% right area of the page text aligned to the left of the box
+\newcommand{\rightpageleftalignment}[2]{%
+    \normalmarginpar{
+        \marginpar{%
+            \begin{minipage}{3cm}%
+                \raggedright%
+                \textcolor{#1}{#2}%
+            \end{minipage}%
+        }%
+    }
+}
+
+% right area of the page text aligned to the left of the box
+\newcommand{\rightpagealigned}[2]{%
+    \normalmarginpar{
+        \marginpar{%
+            \begin{minipage}{3cm}%
+                \textcolor{#1}{#2}%
+            \end{minipage}%
+        }%
+    }
+}
+
+% left area of the page text aligned to the right of the box
+\newcommand{\leftpagerightalignment}[2]{%
+    \reversemarginpar{%
+        \marginpar{%
+            \hspace*{-0.8cm}\begin{minipage}{3cm}%
+                \raggedleft%
+                \textcolor{#1}{#2}%
+            \end{minipage}%
+        }%
+    }%
+}
+
+% left area of the page text aligned to the left of the box
+\newcommand{\leftpageleftalignment}[2]{%
+    \reversemarginpar{%
+        \marginpar{%
+            \hspace*{-0.8cm}\begin{minipage}{3cm}%
+                \raggedright%
+                \textcolor{#1}{#2}%
+            \end{minipage}%
+        }%
+    }%
+}
+
+% left area of the page text aligned to the left of the box
+\newcommand{\leftpagealigned}[2]{%
+    \reversemarginpar{%
+        \marginpar{%
+            \hspace*{-0.8cm}\begin{minipage}{3cm}%
+                \textcolor{#1}{#2}%
+            \end{minipage}%
+        }%
+    }%
+}
+
+\newcommand{\leftpage}[3]{%
+    \hspace*{-\textwidth}\begin{minipage}{3cm}%
+        \vspace*{#1}%
+        \textcolor{#2}{#3}%
+    \end{minipage}%
+}
+
+\newcommand{\rightpage}[3]{%
+    \hspace*{\textwidth}\begin{minipage}{3cm}%
+        \vspace*{#1}%
+        \textcolor{#2}{#3}%
+    \end{minipage}%
+}
+

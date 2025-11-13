@@ -1,0 +1,196 @@
+\documentclass{report}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{mathtools}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{subfig}
+\usepackage[utf8]{inputenc}
+\usepackage[backend=bibtex]{biblatex}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{tikz, pgfplots}
+
+% Requirement libs
+\usetikzlibrary{positioning}
+
+\newcommand{\project}{Name} % Todo Change this to the project name
+\newcommand{\writer}{Aris Podotas} % Todo Change this
+
+% Options
+\nonstopmode % To make sure that you don't have to press input for each error
+\geometry{top=1in, left = 1.6in, right = 1.6in, bottom=1.2in}
+\pgfplotsset{compat=1.18}
+\graphicspath{{./figures/}}
+
+% Metadata
+\addbibresource{./citations.bib}
+\author{\writer}
+\date{today}
+
+% Herlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={\project},
+    pdfpagemode=FullScreen,
+}
+
+% For the code blocks
+\definecolor{codegreen}{rgb}{0.03,0.5,0.03}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+% Code block setup
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    escapeinside={(*}{*)}
+}
+\lstset{style=mystyle}
+
+% My custom headers and margins 
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\pagestyle{fancy}
+\setlength{\headheight}{44pt}
+\setlength{\headsep}{18pt}
+\lhead{\includegraphics[scale = 0.2]{./figures/header.png}}
+\chead{\quad \project}
+\rhead{}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+% right area of the page text aligned to the right of the box
+\newcommand{\rightpagerightalignment}[2]{%
+    \normalmarginpar{
+        \marginpar{%
+            \begin{minipage}{3cm}%
+                \raggedleft%
+                \textcolor{#1}{#2}%
+            \end{minipage}%
+        }%
+    }
+}
+
+% right area of the page text aligned to the left of the box
+\newcommand{\rightpageleftalignment}[2]{%
+    \normalmarginpar{
+        \marginpar{%
+            \begin{minipage}{3cm}%
+                \raggedright%
+                \textcolor{#1}{#2}%
+            \end{minipage}%
+        }%
+    }
+}
+
+% right area of the page text aligned to the left of the box
+\newcommand{\rightpagealigned}[2]{%
+    \normalmarginpar{
+        \marginpar{%
+            \begin{minipage}{3cm}%
+                \textcolor{#1}{#2}%
+            \end{minipage}%
+        }%
+    }
+}
+
+% left area of the page text aligned to the right of the box
+\newcommand{\leftpagerightalignment}[2]{%
+    \reversemarginpar{%
+        \marginpar{%
+            \hspace*{-0.8cm}\begin{minipage}{3cm}%
+                \raggedleft%
+                \textcolor{#1}{#2}%
+            \end{minipage}%
+        }%
+    }%
+}
+
+% left area of the page text aligned to the left of the box
+\newcommand{\leftpageleftalignment}[2]{%
+    \reversemarginpar{%
+        \marginpar{%
+            \hspace*{-0.8cm}\begin{minipage}{3cm}%
+                \raggedright%
+                \textcolor{#1}{#2}%
+            \end{minipage}%
+        }%
+    }%
+}
+
+% left area of the page text aligned to the left of the box
+\newcommand{\leftpagealigned}[2]{%
+    \reversemarginpar{%
+        \marginpar{%
+            \hspace*{-0.8cm}\begin{minipage}{3cm}%
+                \textcolor{#1}{#2}%
+            \end{minipage}%
+        }%
+    }%
+}
+
+\newcommand{\leftpage}[3]{%
+    \hspace*{-\textwidth}\begin{minipage}{3cm}%
+        \vspace*{#1}%
+        \textcolor{#2}{#3}%
+    \end{minipage}%
+}
+
+\newcommand{\rightpage}[3]{%
+    \hspace*{\textwidth}\begin{minipage}{3cm}%
+        \vspace*{#1}%
+        \textcolor{#2}{#3}%
+    \end{minipage}%
+}
+
+% Start
+\begin{document}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Custom title page
+\begin{titlepage}
+    \centering
+    {\huge \textbf{\project}\par}
+    \vspace{0.5cm}
+    {\Large \textbf{Author:} \writer\par}
+    \vspace{0.5cm}
+    {\large \textbf{Date:} \today \par}
+    \setcounter{tocdepth}{4}
+    \tableofcontents
+\end{titlepage}
+
+\input{./chapters/Abstract.tex}
+\input{./chapters/Introduction.tex}
+
+\printbibliography
+
+\end{document}
